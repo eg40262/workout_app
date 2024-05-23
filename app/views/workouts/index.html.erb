@@ -1,0 +1,13 @@
+<h1>Workouts</h1>
+<%= link_to 'トレーニング内容を入力する', new_workout_path %>
+<ul>
+  <% @workouts.each do |workout| %>
+    <li>
+      <%= link_to workout.date.strftime("%Y年%m月%d日"), workout_path(workout) %>
+      <%# ↑0がつくコード %>
+      <%# <%= link_to workout.date.strftime("%Y年%-m月%-d日"), workout_path(workout) %>
+      <%= link_to '編集する', edit_workout_path(workout) %>
+      <%= link_to '削除する', workout_path(workout), data: { turbo_method: :delete, turbo: true, confirm: '削除してもよろしいですか？' } %>
+    </li>
+  <% end %>
+</ul>

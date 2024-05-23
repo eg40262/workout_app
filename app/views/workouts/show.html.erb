@@ -1,0 +1,34 @@
+<h1><%= @workout.date.strftime("%Y年%m月%d日") %>のトレーニング内容</h1>
+
+<h2>Exercises</h2>
+<%= link_to "TOPページに戻る", root_path %>
+<% @exercises.each do |exercise| %>
+  <div class="nested-fields exercise-item">
+    <div class="exercise-field">
+      <strong>Exercise:</strong>
+      <span><%= exercise.name %></span>
+    </div>
+    <div class="exercise-field">
+      <strong>負荷:</strong>
+      <span><%= exercise.weight %>  kg or km/h（ジョギングの場合）</span>
+    </div>
+    <div class="exercise-field">
+      <strong>回数/距離:</strong>
+      <span><%= exercise.reps %>  回 or km（ジョギングの場合）</span>
+    </div>
+    <div class="exercise-field">
+      <strong>セット数:</strong>
+      <span><%= exercise.sets %>  セット</span>
+    </div>
+    <div class="exercise-field">
+      <strong>所要時間:</strong>
+      <span><%= exercise.duration %>  分</span>
+    </div>
+    <%# <div class="exercise-field"> %>
+      <%# <strong>Distance:</strong> %>
+      <%# <span><%= exercise.distance  km（ジョギングの場合入力）</span> %>
+    <%# </div> %>
+  </div>
+<% end %>
+
+<%= link_to "TOPページに戻る", root_path %>

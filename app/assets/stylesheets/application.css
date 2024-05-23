@@ -1,0 +1,84 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+body {
+  font-family: Arial, sans-serif;
+}
+
+h1, h2 {
+  color: #333;
+}
+
+.field {
+  margin-bottom: 15px; 
+  display: flex;
+  align-items: center;
+}
+
+.field .form-label {
+  width: 150px; /* ラベルの固定幅を設定 */
+  margin-right: 10px; /* ラベルと入力フィールドの間にスペースを追加 */
+}
+
+.field .form-input {
+  /* flex: 1; 入力フィールドが利用可能なスペースを占める */
+  width: 150px;
+  margin-right: 10px; /* ここで右マージンを追加 */
+}
+
+.actions {
+  margin-top: 20px;
+}
+
+.nested-fields {
+  border: 1px solid #ddd;
+  padding: 10px;
+  margin-bottom: 10px;
+  background: #f9f9f9;
+}
+
+#exercises {
+  margin-top: 20px;
+}
+
+ul {
+  list-style-type: none;
+}
+
+li {
+  margin-bottom: 10px;
+}
+
+.exercise-item {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 15px;
+}
+
+.exercise-field {
+  flex: 1 1 45%; /* 各フィールドを2列に配置 */
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+
+.exercise-field strong {
+  display: inline-block;
+  width: 100px; /* ラベルの幅を固定 */
+}
+
+.exercise-field span {
+  display: inline-block;
+}

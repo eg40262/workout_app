@@ -1,0 +1,35 @@
+<h1>トレーニング内容を入力してください</h1>
+
+<%= form_with(model: @workout, local: true) do |form| %>
+  <% if @workout.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@workout.errors.count, "error") %> prohibited this workout from being saved:</h2>
+      <ul>
+        <% @workout.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :date, "トレーニングをした日" %>
+    <%= form.date_field :date %>
+  </div>
+
+  <div id="exercises">
+    <%= form.fields_for :exercises do |exercise_form| %>
+      <%= render 'exercise_fields', f: exercise_form %>
+    <% end %>
+  </div>
+
+  <%# <%= link_to_add_association "トレーニングを追加する", form, :exercises %>
+
+  <div class="actions">
+    <%= form.submit "更新" %>
+  </div>
+<% end %>
+
+  <div>
+    <%= link_to "TOPページに戻る", root_path %>
+  </div>  
