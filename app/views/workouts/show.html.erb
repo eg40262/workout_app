@@ -1,11 +1,13 @@
 <h1><%= @workout.date.strftime("%Y年%m月%d日") %>のトレーニング内容</h1>
 
-<h2>Exercises</h2>
+<% if user_signed_in? && current_user == @workout.user %>
+  <%= link_to '編集する', edit_workout_path(@workout) %>
+<% end %>
 <%= link_to "TOPページに戻る", root_path %>
 <% @exercises.each do |exercise| %>
   <div class="nested-fields exercise-item">
     <div class="exercise-field">
-      <strong>Exercise:</strong>
+      <strong>トレーニング:</strong>
       <span><%= exercise.name %></span>
     </div>
     <div class="exercise-field">
@@ -29,6 +31,10 @@
       <%# <span><%= exercise.distance  km（ジョギングの場合入力）</span> %>
     <%# </div> %>
   </div>
+<% end %>
+
+<% if user_signed_in? && current_user == @workout.user %>
+  <%= link_to '編集する', edit_workout_path(@workout) %>
 <% end %>
 
 <%= link_to "TOPページに戻る", root_path %>

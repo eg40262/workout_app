@@ -22,6 +22,26 @@ h1, h2 {
   color: #333;
 }
 
+/* ↓ログアウトなどの文字を右端にしたい↓ */
+.user_nav {
+  overflow: hidden; /* 親要素が子要素を包むために必要 */
+  display: flex; /* フレックスボックスを使用してアイテムを配置 */
+  justify-content: flex-end; /* フレックスアイテムを右端に配置 */
+}
+
+.user_nav .post {
+  margin-right: 10px; /* リンク間にスペースを追加 */
+}
+
+.user_nav .post:last-child {
+  margin-right: 0; /* 最後のリンクの右マージンを無効化 */
+}
+
+.user_nav a {
+  float: right;
+}
+/* ↑ログアウトなどの文字を右端にしたい↑ */
+
 .field {
   margin-bottom: 15px; 
   display: flex;
@@ -72,6 +92,7 @@ li {
   flex: 1 1 45%; /* 各フィールドを2列に配置 */
   margin-right: 10px;
   margin-bottom: 10px;
+  font-size: 14px;
 }
 
 .exercise-field strong {
