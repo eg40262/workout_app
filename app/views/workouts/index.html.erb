@@ -1,13 +1,12 @@
-<h1>トレーニングNOTE（仮）</h1>
-
+<div class="wrapper">
 <% if user_signed_in? %>
-  <%= link_to "新しいワークアウトを作成", new_workout_path, class: "post" %>
+  <%= link_to "新しいワークアウトを作成", new_workout_path, class: "new-work-button" %>
 <% end %>
 
 <ul>
   <% @workouts.each do |workout| %>
     <li>
-      <%= link_to workout.date.strftime("%Y年%m月%d日"), workout_path(workout) %>
+      <%= link_to "#{workout.date.strftime('%Y年%m月%d日')} (#{japanese_wday(workout.date)})", workout_path(workout) %>
       <span>登録者: <%= workout.user.nickname %></span>
       <%# ↑0がつくコード %>
       <%# <%= link_to workout.date.strftime("%Y年%-m月%-d日"), workout_path(workout) %>
@@ -18,3 +17,4 @@
     </li>
   <% end %>
 </ul>
+</div>

@@ -15,18 +15,54 @@
  */
 
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Noto Sans JP', sans-serif;
+  /* font-family: Arial, sans-serif; */
+  background-color: #f4f4f9; /* 全体の背景色を変更 */
+  margin: 0;
+  padding: 0;
 }
 
 h1, h2 {
   color: #333;
 }
 
+.upper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px; /* パディングを追加 */
+  background-color: #ffffff; /* ヘッダーの背景色を変更 */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 影を追加 */
+}
+
+.title {
+  flex: 1; /* タイトルエリアをフレックスアイテムとして設定 */
+}
+
+.title h1 {
+  color: #594ef8;
+  font-size: 2.5em;
+  margin: 0;
+}
+
+.title h1 a {
+  color: #594ef8; /* リンクの色をタイトルと同じにする */
+  text-decoration: none; /* 下線を消す */
+}
+
+/* ↓リンクの下線を消す↓ */
+a {
+  text-decoration: none;
+  font-size: 1em;
+}
+/* ↑リンクの下線を消す↑ */
+
 /* ↓ログアウトなどの文字を右端にしたい↓ */
 .user_nav {
   overflow: hidden; /* 親要素が子要素を包むために必要 */
   display: flex; /* フレックスボックスを使用してアイテムを配置 */
   justify-content: flex-end; /* フレックスアイテムを右端に配置 */
+  align-items: center; /* フレックスアイテムを縦方向中央に配置 */
 }
 
 .user_nav .post {
@@ -41,6 +77,84 @@ h1, h2 {
   float: right;
 }
 /* ↑ログアウトなどの文字を右端にしたい↑ */
+
+/* ↓ログインボタン↓ */
+
+.login-button {
+  background-color: #007BFF;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  padding: 10px 20px; /* ボタンの内側の余白 */
+  /* padding: 4px 4px; */
+  margin: 3px;
+  font-size: 15px;
+  /* font-weight: bold; */
+  line-height: 1.5; /* ボタン内のテキストの行の高さを設定 */
+  text-align: center;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  display: inline-block; /* ボタンがインラインブロックとして表示されるようにする */
+}
+
+.login-button:hover {
+  background-color: #0056b3;
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.08);
+}
+
+.login-button:active {
+  background-color: #004494;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.08);
+  transform: translateY(2px);
+}
+
+/* アイコン付きのボタン */
+.login-button::before,
+.signup-button::before {
+  margin-right: 8px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+
+/* ↑ログインボタン↑ */
+
+/* ↓新しいワークアウトのボタン↓ */
+.new-work-button {
+  background-color: #14a920;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  padding: 10px 20px; /* ボタンの内側の余白 */
+  /* padding: 4px 4px; */
+  margin: 3px;
+  font-size: 15px;
+  /* font-weight: bold; */
+  line-height: 1.5; /* ボタン内のテキストの行の高さを設定 */
+  text-align: center;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  display: inline-block; /* ボタンがインラインブロックとして表示されるようにする */
+}
+
+.new-work-button:hover {
+  background-color: #0c6514;
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.08);
+}
+
+.new-work-button:active {
+  background-color: #004494;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.08);
+  transform: translateY(2px);
+}
+/* ↑新しいワークアウトのボタン↑ */
+
+.wrapper{
+  padding: 20px 40px;
+  margin-left: 30px;
+}
 
 .field {
   margin-bottom: 15px; 
@@ -102,4 +216,9 @@ li {
 
 .exercise-field span {
   display: inline-block;
+}
+
+.return-link {
+  margin-top: 20px; /* 戻るリンクの上にマージンを追加 */
+  display: block; /* 戻るリンクをブロック要素にすることで幅を全体にする */
 }
