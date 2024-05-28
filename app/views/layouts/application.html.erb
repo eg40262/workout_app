@@ -19,8 +19,11 @@
         <h1><%= link_to "トレーニングNOTE（仮）", root_path %></h1>
       </div>
       <% if user_signed_in? %>
+      <div class="user-info">
+        <span><%= current_user.nickname %>さん、今日もお疲れ様です！</span>
+      </div>
         <div class="user_nav grid-6">
-          <%= link_to "ログアウト", destroy_user_session_path, data: { turbo_method: :delete } ,class: "login-button"%>
+          <%= link_to "ログアウト", destroy_user_session_path, data: { turbo_method: :delete }, class: "login-button" %>
           <% if @workout && @workout.persisted? %>
           <%# <%= link_to "投稿する", new_workout_exercise_path(workout_id: @workout.id), class: "post" %> 
           <% else %>

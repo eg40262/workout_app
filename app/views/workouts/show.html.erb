@@ -1,11 +1,12 @@
 <div class="wrapper">
-  <h1><%= @workout.date.strftime("%Y年%m月%d日") %>（<%= %w(日 月 火 水 木 金 土)[@workout.date.wday] %>）のトレーニング内容</h1>
-
+  <div class="workout-top">
+    <h1><%= @workout.date.strftime("%Y年%m月%d日") %>（<%= %w(日 月 火 水 木 金 土)[@workout.date.wday] %>）のトレーニング内容</h1>
+  </div>
   <% if user_signed_in? && current_user == @workout.user %>
-    <%= link_to '編集する', edit_workout_path(@workout) %>
+    <div class="login-button">
+      <%= link_to 'トレーニング内容を編集する', edit_workout_path(@workout) %>
+    </div>
   <% end %>
-
-  <%= link_to "TOPページに戻る", root_path, class: "return-link" %>
 
   <% @exercises.each do |exercise| %>
     <div class="nested-fields exercise-item">
@@ -32,10 +33,12 @@
     </div>
   <% end %>
 
-  <% if user_signed_in? && current_user == @workout.user %>
-    <%= link_to '編集する', edit_workout_path(@workout) %>
+  <% if @workout.image.attached? %>
+    <div>
+      <%= image_tag @workout.image %>
+    </div>
   <% end %>
 
-  <%= link_to "TOPページに戻る", root_path, class: "return-link" %>
+  <%= link_to "▶TOPページに戻る", root_path, class: "return-link" %>
   
 </div>

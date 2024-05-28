@@ -17,6 +17,11 @@
     <%= form.date_field :date %>
   </div>
 
+  <div class="field">
+    <%= form.label :image, "体の変化を記録する画像" %>
+    <%= form.file_field :image %>
+  </div>
+
   <div id="exercises">
     <%= form.fields_for :exercises do |exercise_form| %>
       <%= render 'exercise_fields', f: exercise_form %>

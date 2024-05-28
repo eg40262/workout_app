@@ -50,6 +50,11 @@ h1, h2 {
   text-decoration: none; /* 下線を消す */
 }
 
+.user-info {
+  font-size: 1.2em;
+  color: #333;
+  margin-right: 20px;
+}
 /* ↓リンクの下線を消す↓ */
 a {
   text-decoration: none;
@@ -117,6 +122,12 @@ a {
   vertical-align: middle;
 }
 
+/* aタグの色を親要素から継承し、下線を消す */
+.login-button a {
+  color: inherit; /* 親要素の色を継承する */
+  text-decoration: none; /* 下線を消す */
+}
+
 
 /* ↑ログインボタン↑ */
 
@@ -145,15 +156,37 @@ a {
 }
 
 .new-work-button:active {
-  background-color: #004494;
+  background-color: #0c6514;
   box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.08);
   transform: translateY(2px);
 }
 /* ↑新しいワークアウトのボタン↑ */
 
+/* 詳細ページ */
 .wrapper{
   padding: 20px 40px;
+  margin-top: 10px;
   margin-left: 30px;
+  margin-bottom: 10px;
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  width: calc(100% - 50px);
+  box-sizing: border-box;
+}
+
+.workout-top {
+  font-size: 0.9em;
+  /* 例えば、親要素のフォントサイズが 16px の場合、1em は 16px に相当します。したがって、1.2em は以下のように計算されます： */
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #4038ab;
+}
+
+.workout-top h1 {
+  color: #4038ab; /* ここでより具体的なセレクタを使用して色を設定 */
 }
 
 .field {
@@ -221,4 +254,150 @@ li {
 .return-link {
   margin-top: 20px; /* 戻るリンクの上にマージンを追加 */
   display: block; /* 戻るリンクをブロック要素にすることで幅を全体にする */
+  color: inherit; /* 親要素の色を継承する */
+  text-decoration: none; /* 下線を消す */
+  font-weight: bold;
 }
+
+/* リンクのホバー、アクティブ、フォーカス状態を指定して色が変わらないようにする */
+.return-link:hover,
+.return-link:active,
+.return-link:focus {
+  color: #4038ab;
+  text-decoration: none; /* 必要に応じて下線を消す */
+}
+
+/* ↑詳細ページ↑ */
+
+/* ワークアウトリスト */
+.workout-list {
+  display: flex;
+  flex-wrap: wrap; /* 子要素がコンテナの幅を超えた場合、自動的に次の行に折り返します。 */
+  gap: 20px;/* 各カード間のスペースを20pxに設定します。 */
+  padding: 20px 0;
+}
+
+.workout-card {
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  width: calc(33.333% - 20px);
+  box-sizing: border-box;
+}
+
+.workout-date {
+  font-size: 1.2em;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #4038ab;
+}
+
+/* ↓リンクの色を親要素に継承させる↓ */
+.workout-date a {
+  color: inherit;
+  text-decoration: none; /* 必要に応じて下線を消す */
+}
+/* ↑リンクの色を親要素に継承させる↑ */
+
+.workout-details {
+  font-size: 1em;
+  color: #333;
+}
+
+.workout-actions {
+  margin-top: 10px;
+  display: flex;
+  gap: 10px;
+}
+
+.edit-link, .delete-link {
+  color: #007BFF;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+}
+
+.edit-link i, .delete-link i {
+  margin-right: 5px;
+}
+
+.edit-link:hover, .delete-link:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .workout-card {
+    width: calc(50% - 20px);
+  }
+}
+
+@media (max-width: 480px) {
+  .workout-card {
+    width: 100%;
+  }
+}
+/* ワークアウトリスト */
+
+/* ↓ユーザー登録↓ */
+.container {
+  max-width: 500px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  color: #007BFF; /* 青色のタイトル */
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.field {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.field label {
+  color: #555;
+  width: 200px; /* ラベルの幅を広げる */
+  margin-right: 10px; /* ラベルと入力フィールドの間のスペース */
+}
+
+.field input[type="text"],
+.field input[type="email"],
+.field input[type="password"] {
+  flex: 1; /* 残りの幅を占める */
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.field input[type="text"]:focus,
+.field input[type="email"]:focus,
+.field input[type="password"]:focus {
+  border-color: #007BFF;
+  outline: none;
+}
+
+.actions {
+  text-align: center;
+}
+
+.actions input[type="submit"] {
+  background-color: #007BFF;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.actions input[type="submit"]:hover {
+  background-color: #0056b3;
+}
+/* ↑ユーザー登録↑ */

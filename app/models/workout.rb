@@ -2,6 +2,8 @@ class Workout < ApplicationRecord
   belongs_to :user
   has_many :exercises, dependent: :destroy
   accepts_nested_attributes_for :exercises, allow_destroy: true
+  # ネストされたフォームからExerciseの属性を受け入れ、Workoutを更新する際にExerciseの作成、更新、削除が可能になります。
+  has_one_attached :image
 
   scope :recent, -> { order(date: :desc) }
 
