@@ -4,22 +4,22 @@
     <%= form_with model: @user, url: user_registration_path, id: 'new_user', class: 'new_user', local: true do |f| %>
       <%= render "devise/shared/error_messages", resource: resource %>
 
-      <div class="field">
+      <div class="field-u">
         <%= f.label :nickname, "ニックネーム (6文字までOK)" %><br />
         <%= f.text_field :nickname, autofocus: true, maxlength: "6" %>
       </div>
 
-      <div class="field">
+      <div class="field-u">
         <%= f.label :email, "メールアドレス" %><br />
         <%= f.email_field :email %>
       </div>
 
-      <div class="field">
+      <div class="field-u">
         <%= f.label :password, "パスワード (最低でも6文字以上入力)" %><br />
         <%= f.password_field :password, autocomplete: "off" %>
       </div>
 
-      <div class="field">
+      <div class="field-u">
         <%= f.label :password_confirmation, "パスワード確認" %><br />
         <%= f.password_field :password_confirmation, autocomplete: "off" %>
       </div>

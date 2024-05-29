@@ -23,7 +23,6 @@
   <h2>トレーニングを追加</h2>
 
   <div id="exercises">
-    <%# <%= form.hidden_field :exercise_count, value: @exercise_count || @workout.exercises.size %> 
     <%= form.fields_for :exercises do |exercise_form| %>
       <%= render 'exercise_fields', f: exercise_form %>
     <% end %>

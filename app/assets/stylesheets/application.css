@@ -201,9 +201,8 @@ a {
 }
 
 .field .form-input {
-  /* flex: 1; 入力フィールドが利用可能なスペースを占める */
-  width: 150px;
-  margin-right: 10px; /* ここで右マージンを追加 */
+  width: 200px; /* 入力フィールドの幅を設定します */
+  margin-right: 10px; /* 必要に応じてマージンを調整します */
 }
 
 .actions {
@@ -217,7 +216,7 @@ a {
   background: #f9f9f9;
 }
 
-#exercises {
+.exercises {
   margin-top: 20px;
 }
 
@@ -356,30 +355,30 @@ h2 {
   margin-bottom: 20px;
 }
 
-.field {
+.field-u {
   display: flex;
   align-items: center;
   margin-bottom: 15px;
 }
 
-.field label {
+.field-u label {
   color: #555;
   width: 200px; /* ラベルの幅を広げる */
   margin-right: 10px; /* ラベルと入力フィールドの間のスペース */
 }
 
-.field input[type="text"],
-.field input[type="email"],
-.field input[type="password"] {
+.field-u input[type="text"],
+.field-u input[type="email"],
+.field-u input[type="password"] {
   flex: 1; /* 残りの幅を占める */
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 4px;
 }
 
-.field input[type="text"]:focus,
-.field input[type="email"]:focus,
-.field input[type="password"]:focus {
+.field-u input[type="text"]:focus,
+.field-u input[type="email"]:focus,
+.field-u input[type="password"]:focus {
   border-color: #007BFF;
   outline: none;
 }
@@ -401,3 +400,7 @@ h2 {
   background-color: #0056b3;
 }
 /* ↑ユーザー登録↑ */
+
+.form-input {
+  width: 200px; /* 希望する幅を指定 */
+}

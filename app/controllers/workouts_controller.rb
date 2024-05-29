@@ -1,6 +1,9 @@
 class WorkoutsController < ApplicationController
+  before_action :authenticate_user! # ユーザーがログインしていることを確認
+  
   def index
-    @workouts = Workout.recent
+    @workouts = current_user.workouts.recent
+    #@workouts = Workout.recent
     #@workouts = Workout.all
   end
 
