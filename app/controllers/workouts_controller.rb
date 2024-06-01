@@ -1,8 +1,19 @@
 class WorkoutsController < ApplicationController
-  before_action :authenticate_user! # ユーザーがログインしていることを確認
+  before_action :redirect_unless_logged_in, except: :index
+  # before_action :authenticate_user! # ユーザーがログインしていることを確認
+  #このフィルターにより、ユーザーがログインしていない場合、アクションが実行される前にログインページにリダイレクトされます。
   
   def index
-    @workouts = current_user.workouts.recent
+    if user_signed_in?
+      @workouts = current_user.workouts.recent
+    else
+      # ログインしていない場合は何もしないか、別のメッセージを表示する
+      @workouts = []
+      flash[:alert] = "Please log in to view your workouts."
+    end
+    #@workouts = current_user.workouts.recent if user_signed_in?
+    # 現在ログインしているユーザーに関連する workout オブジェクトをすべて取得します。
+    #.recent はスコープメソッドでワークアウトのレコードを新しい順にソートして返す
     #@workouts = Workout.recent
     #@workouts = Workout.all
   end
@@ -54,6 +65,10 @@ class WorkoutsController < ApplicationController
   end
 
   private
+
+  def redirect_unless_logged_in
+    redirect_to root_path unless user_signed_in?
+  end
 
   def workout_params
     params.require(:workout).permit(:date, :image, exercises_attributes: [:id, :name, :weight, :reps, :sets, :duration, :distance, :_destroy])

@@ -16,7 +16,7 @@
   <body>
     <div class="upper">
       <div class="title">
-        <h1><%= link_to "トレーニングNOTE（仮）", root_path %></h1>
+        <h1><%= link_to "トレーニングNOTE", root_path %></h1>
       </div>
       <% if user_signed_in? %>
       <div class="user-info">
@@ -31,6 +31,9 @@
           <% end %>
         </div>
       <% else %>
+        <div class="user-info">
+          <span>新規登録かログインをしてトレーニングを記録しよう！</span>
+        </div>
         <div class="user_nav grid-6">
           <%= link_to "ログイン", new_user_session_path, class: "login-button" %>
           <%# <%= link_to "ログイン", new_user_session_path, class: "post" %>
