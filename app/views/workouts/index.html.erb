@@ -1,28 +1,55 @@
 <div class="wrapper">
   <% if user_signed_in? %>
     <%= link_to "新しいワークアウトを作成", new_workout_path, class: "new-work-button" %>
+
+   <%# <%= form_with url: filtered_workouts_path(year: params[:year] || Time.now.year, month: params[:month] || Time.now.month), method: :get, local: true do %>
+      <%# <div class="date-selector"> %>
+        <%# <%= select_tag :year, options_for_select((2000..Time.now.year).to_a.reverse, selected: params[:year] || Time.now.year) %> 
+        <%# <%= select_tag :month, options_for_select((1..12).to_a, selected: params[:month] || Time.now.month) %> 
+        <%# <%= submit_tag "表示" %> 
+       <%# </div> %>
+     <%# <% end %> 
   <% end %>
 
   <div class="workout-list">
     <% @workouts.each do |workout| %>
       <div class="workout-card">
-        <div class="workout-date">
-          <%= link_to "#{workout.date.strftime('%Y年%m月%d日')} (#{japanese_wday(workout.date)})", workout_path(workout) %>
+        <div class="workout-card-1">
+          <div class="workout-date">
+            <%= link_to "#{workout.date.strftime('%Y年%m月%d日')} (#{japanese_wday(workout.date)})", workout_path(workout) %>
+          </div>
+          <div class="workout-details">
+            <span>登録者: <%= workout.user.nickname %></span>
+
+            <!-- Display the image if attached -->
+            
+
+            <% if user_signed_in? && current_user == workout.user %>
+              <div class="workout-actions">
+                <%= link_to edit_workout_path(workout), class: "edit-link", data: { turbo: false } do %>
+                  <span>編集する</span>
+                <% end %>
+                <%# <%= link_to edit_workout_path(workout), class: "edit-link" do %>
+                  <%# <i class="fas fa-edit"></i> 編集する %>
+                <%# <% end %>
+                <%= link_to workout_path(workout), data: { turbo_method: :delete, turbo: true, confirm: '削除してもよろしいですか？' }, class: "delete-link" do %>
+                  <i class="fas fa-trash"></i> 削除する
+                <% end %>
+              </div>
+            <% end %>
+          </div>
         </div>
-        <div class="workout-details">
-          <span>登録者: <%= workout.user.nickname %></span>
-          <% if user_signed_in? && current_user == workout.user %>
-            <div class="workout-actions">
-              <%= link_to edit_workout_path(workout), class: "edit-link" do %>
-                <i class="fas fa-edit"></i> 編集する
+        <div class="workout-image">
+              <% if workout.image.attached? %>
+                <%= image_tag workout.image, size: "200x200", alt: "Workout Image" %>
+              <% else %>
+                <p>体の変化を<br>写真で残そう！</p>
               <% end %>
-              <%= link_to workout_path(workout), data: { turbo_method: :delete, turbo: true, confirm: '削除してもよろしいですか？' }, class: "delete-link" do %>
-                <i class="fas fa-trash"></i> 削除する
-              <% end %>
-            </div>
-          <% end %>
         </div>
+
       </div>
     <% end %>
   </div>
+
+
 </div>

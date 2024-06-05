@@ -28,7 +28,9 @@
     <% end %>
   </div>
 
-  
+    <!-- hidden fields to include year and month params -->
+  <%= form.hidden_field :year, value: params[:year] %>
+  <%= form.hidden_field :month, value: params[:month] %>
 
   <div class="actions">
     <%= form.submit "登録" %>
