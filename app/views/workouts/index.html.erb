@@ -27,13 +27,13 @@
             <% if user_signed_in? && current_user == workout.user %>
               <div class="workout-actions">
                 <%= link_to edit_workout_path(workout), class: "edit-link", data: { turbo: false } do %>
-                  <span>編集する</span>
+                  <span>編集</span>
                 <% end %>
                 <%# <%= link_to edit_workout_path(workout), class: "edit-link" do %>
                   <%# <i class="fas fa-edit"></i> 編集する %>
                 <%# <% end %>
                 <%= link_to workout_path(workout), data: { turbo_method: :delete, turbo: true, confirm: '削除してもよろしいですか？' }, class: "delete-link" do %>
-                  <i class="fas fa-trash"></i> 削除する
+                  <i class="fas fa-trash"></i> 削除
                 <% end %>
               </div>
             <% end %>

@@ -269,9 +269,7 @@ li {
 }
 
 .show-image{
-  /* width: 100%; */
-  width: 500px;
-  height: 500px;
+  width: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
