@@ -33,6 +33,7 @@ h1, h2 {
   padding: 20px 40px; /* パディングを追加 */
   background-color: #ffffff; /* ヘッダーの背景色を変更 */
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 影を追加 */
+  flex-wrap: wrap; /* 追加 */
 }
 
 .title {
@@ -41,7 +42,7 @@ h1, h2 {
 
 .title h1 {
   color: #594ef8;
-  font-size: 2.5em;
+  font-size: 2em;
   margin: 0;
 }
 
@@ -51,7 +52,7 @@ h1, h2 {
 }
 
 .user-info {
-  font-size: 1.2em;
+  font-size: 1em;
   color: #333;
   margin-right: 20px;
 }
@@ -64,10 +65,11 @@ a {
 
 /* ↓ログアウトなどの文字を右端にしたい↓ */
 .user_nav {
-  overflow: hidden; /* 親要素が子要素を包むために必要 */
   display: flex; /* フレックスボックスを使用してアイテムを配置 */
+  overflow: hidden; /* 親要素が子要素を包むために必要 */
   justify-content: flex-end; /* フレックスアイテムを右端に配置 */
   align-items: center; /* フレックスアイテムを縦方向中央に配置 */
+  flex-wrap: wrap;
 }
 
 .user_nav .post {
@@ -80,6 +82,7 @@ a {
 
 .user_nav a {
   float: right;
+  margin: 5px;
 }
 /* ↑ログアウトなどの文字を右端にしたい↑ */
 
@@ -172,13 +175,12 @@ a {
   border: 1px solid #ddd;
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  padding: 20px;
   width: calc(100% - 50px);
   box-sizing: border-box;
 }
 
 .workout-top {
-  font-size: 0.9em;
+  font-size: 1em;
   /* 例えば、親要素のフォントサイズが 16px の場合、1em は 16px に相当します。したがって、1.2em は以下のように計算されます： */
   font-weight: bold;
   margin-bottom: 10px;
@@ -190,7 +192,7 @@ a {
 }
 
 .field {
-  margin-bottom: 15px; 
+  margin-bottom: 15px;
   display: flex;
   align-items: center;
 }
@@ -201,7 +203,7 @@ a {
 }
 
 .field .form-input {
-  width: 200px; /* 入力フィールドの幅を設定します */
+  width: 100%; /* 入力フィールドの幅を設定します.元は200px */
   margin-right: 10px; /* 必要に応じてマージンを調整します */
 }
 
@@ -235,8 +237,8 @@ li {
 }
 
 .exercise-field {
-  flex: 1 1 45%; /* 各フィールドを2列に配置 */
-  margin-right: 10px;
+  flex: 1 1 100%; /* 各フィールドを2列に配置.元は45% */
+  /* margin-right: 10px; */
   margin-bottom: 10px;
   font-size: 14px;
 }
@@ -267,10 +269,57 @@ li {
 }
 
 .show-image{
-  width: 200px;
-  height: 200px;
+  /* width: 100%; */
+  width: 500px;
+  height: 500px;
   display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px auto; /* Ensure image is centered and has margin */
 }
+
+.show-image img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.henshu-button {
+  background-color: #007BFF;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  padding: 10px 20px; /* ボタンの内側の余白 */
+  /* padding: 4px 4px; */
+  margin: 3px;
+  font-size: 15px;
+  /* font-weight: bold; */
+  line-height: 1.5; /* ボタン内のテキストの行の高さを設定 */
+  text-align: center;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  display: inline-block; /* ボタンがインラインブロックとして表示されるようにする */
+}
+
+.henshu-button a.no-link-style {
+  color: white !important; /* リンク内のテキストの色を白に設定 */
+  text-decoration: none; /* リンクの下線を消す */
+}
+
+.henshu-button:hover {
+  background-color: #0056b3;
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.08);
+}
+
+.henshu-button:active {
+  background-color: #004494;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.08);
+  transform: translateY(2px);
+}
+
+
+
 
 /* ↑詳細ページ↑ */
 
@@ -289,6 +338,7 @@ li {
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   padding: 20px;
+  /* width: calc(100% - 40px); */
   width: calc(33.333% - 20px);
   box-sizing: border-box;
 }
@@ -309,7 +359,7 @@ li {
   border-radius: 5px;
   /* background-color: #f0f0f0; 画像がない場合の背景色 */
   overflow: hidden; /* 画像が枠を超えないようにする */
-  margin-left:10px;
+  margin-left: 10px;
   text-align: center; /* 文字を中央揃えにする */
 }
 
@@ -354,8 +404,32 @@ li {
 }
 
 @media (max-width: 768px) {
+  .upper {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px; /* 修正 */
+  }
+
+  .user_nav {
+    justify-content: flex-start;
+    flex-wrap: wrap; /* 追加 */
+  }
+
+  /* .wrapper { */
+    /* padding: 10px; */
+  /* } */
+
   .workout-card {
     width: calc(50% - 20px);
+  }
+
+  .field .form-label {
+    width: 100%;
+    margin-bottom: 5px;
+  }
+
+  .exercise-field {
+    flex: 1 1 100%;
   }
 }
 
@@ -374,6 +448,14 @@ li {
   background-color: #ffffff;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: center;
+}
+
+.form-title {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #007BFF;
 }
 
 h2 {
@@ -383,21 +465,34 @@ h2 {
 }
 
 .field-u {
-  display: flex;
-  align-items: center;
+  /* display: flex; */
+  /* flex-wrap: wrap; */
+  /* align-items: center; */
   margin-bottom: 15px;
+}
+
+.label-container {
+  margin-bottom: 5px; /* ラベルとフィールドの間にスペースを追加 */
+}
+
+.field-container {
+  display: block;
 }
 
 .field-u label {
   color: #555;
-  width: 200px; /* ラベルの幅を広げる */
-  margin-right: 10px; /* ラベルと入力フィールドの間のスペース */
+  width: 100%;
+  display: block;
+  margin-bottom: 5px;
+  /* width: 200px; ラベルの幅を広げる */
+  /* margin-right: 10px; ラベルと入力フィールドの間のスペース */
 }
 
 .field-u input[type="text"],
 .field-u input[type="email"],
 .field-u input[type="password"] {
-  flex: 1; /* 残りの幅を占める */
+  width: 100%;
+  /* flex: 1; 残りの幅を占める */
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 4px;
@@ -429,7 +524,8 @@ h2 {
 /* ↑ユーザー登録↑ */
 
 .form-input {
-  width: 200px; /* 希望する幅を指定 */
+  width: 100%;
+  /* width: 200px; 希望する幅を指定 */
 }
 
 /* ↓レスポンスデザイン↓ */

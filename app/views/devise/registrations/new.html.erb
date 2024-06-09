@@ -1,27 +1,44 @@
 <div class="contents row">
   <div class="container">
-    <h2>新規登録</h2>
     <%= form_with model: @user, url: user_registration_path, id: 'new_user', class: 'new_user', local: true do |f| %>
       <%= render "devise/shared/error_messages", resource: resource %>
-
+      <div>
+        <h2 class="form-title">新規登録</h2>
+      </div>
       <div class="field-u">
-        <%= f.label :nickname, "ニックネーム (6文字までOK)" %><br />
-        <%= f.text_field :nickname, autofocus: true, maxlength: "6" %>
+        <div class="label-container">
+          <%= f.label :nickname, "ニックネーム (6文字までOK)" %>
+        </div>
+        <div class="field-container">
+          <%= f.text_field :nickname, autofocus: true, maxlength: "6" %>
+        </div>
       </div>
 
       <div class="field-u">
-        <%= f.label :email, "メールアドレス" %><br />
-        <%= f.email_field :email %>
+        <div class="label-container">
+          <%= f.label :email, "メールアドレス" %>
+        </div>
+        <div class="field-container">
+          <%= f.email_field :email %>
+        </div>
       </div>
 
       <div class="field-u">
-        <%= f.label :password, "パスワード (最低でも6文字以上入力)" %><br />
-        <%= f.password_field :password, autocomplete: "off" %>
+        <div class="label-container">
+          <%= f.label :password, "パスワード (最低でも6文字以上入力)" %>
+        </div>
+        <div class="field-container">
+          <%= f.password_field :password, autocomplete: "off" %>
+        </div>
       </div>
 
       <div class="field-u">
-        <%= f.label :password_confirmation, "パスワード確認" %><br />
-        <%= f.password_field :password_confirmation, autocomplete: "off" %>
+        <div class="label-container">
+          <%= f.label :password_confirmation, "パスワード確認" %>
+        </div>
+        <div class="field-container">
+          <%= f.password_field :password_confirmation, autocomplete: "off" %>
+        </div>
       </div>
 
       <div class="actions">
