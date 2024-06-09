@@ -217,7 +217,7 @@ a {
 }
 
 .field .form-input {
-  width: 30%; /* 入力フィールドの幅を設定します.元は200px */
+  width: 200px; /* 入力フィールドの幅を設定します.元は200px */
   margin-right: 10px; /* 必要に応じてマージンを調整します */
   margin-bottom: 5px;
 }
