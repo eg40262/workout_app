@@ -1,22 +1,38 @@
 <div class="nested-fields">
-  <div class="field">
-    <%= f.label :name, "トレーニング内容", class: "form-label" %>
-    <%= f.text_field :name, class: "form-input" %>
+  <div class="field-block">
+    <div class="field">
+      <%= f.label :name, "トレーニング内容", class: "form-label" %>
+    </div>
+    <div class="field">
+      <%= f.text_field :name, class: "form-input" %>
+    </div>
   </div>
+
   <div class="field">
     <%= f.label :weight, "負荷を入力", class: "form-label" %>
-    <%= f.number_field :weight, class: "form-input" %> kg or km/h（ジョギングの場合は速さ）
   </div>
+  <div class="field">
+    <%= f.number_field :weight, class: "form-input" %>kg or km/h（ジョギングの場合は速さ）
+  </div>
+
   <div class="field">
     <%= f.label :reps, "回数/距離", class: "form-label" %>
+  </div>
+  <div class="field">
     <%= f.number_field :reps, class: "form-input" %> 回 or km（ジョギングの場合は距離）
   </div>
+
   <div class="field">
     <%= f.label :sets, "セット数", class: "form-label" %>
-    <%= f.number_field :sets, class: "form-input" %> セット
   </div>
   <div class="field">
+    <%= f.number_field :sets, class: "form-input" %> セット
+  </div>
+
+  <div class="field">
     <%= f.label :duration, "所要時間", class: "form-label" %>
+  </div>
+  <div class="field">
     <%= f.number_field :duration, class: "form-input" %> 分
   </div>
 </div>

@@ -191,10 +191,24 @@ a {
   color: #4038ab; /* ここでより具体的なセレクタを使用して色を設定 */
 }
 
+.nested-fields {
+  border: 1px solid #ddd;
+  padding: 10px 30%;
+  /* margin-bottom: 10px; */
+  background: #f9f9f9;
+
+}
+
+.field-block {
+
+  margin-bottom: 10px;
+}
+
 .field {
-  margin-bottom: 15px;
+  /* margin-bottom: 5px; */
   display: flex;
   align-items: center;
+  padding: 5px;
 }
 
 .field .form-label {
@@ -203,20 +217,17 @@ a {
 }
 
 .field .form-input {
-  width: 100%; /* 入力フィールドの幅を設定します.元は200px */
+  width: 30%; /* 入力フィールドの幅を設定します.元は200px */
   margin-right: 10px; /* 必要に応じてマージンを調整します */
+  margin-bottom: 5px;
 }
+/* .field .form-input */
 
 .actions {
   margin-top: 20px;
 }
 
-.nested-fields {
-  border: 1px solid #ddd;
-  padding: 10px;
-  margin-bottom: 10px;
-  background: #f9f9f9;
-}
+
 
 .exercises {
   margin-top: 20px;
