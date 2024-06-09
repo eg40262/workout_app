@@ -73,3 +73,6 @@ end
 
 gem 'cocoon'
 gem 'devise'
+group :production do
+  gem 'pg'
+end
