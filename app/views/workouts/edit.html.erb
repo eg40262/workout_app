@@ -1,4 +1,4 @@
-<h1>トレーニング内容を入力してください</h1>
+<h2>トレーニング内容を入力してください</h2>
 
 <%= form_with(model: @workout, local: true) do |form| %>
   <% if @workout.errors.any? %>
@@ -12,15 +12,23 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :date, "トレーニングをした日" %>
-    <%= form.date_field :date %>
+  <div class="nested-fields">
+    <%# "field" %>
+    <div>
+      <%= form.label :date, "トレーニングをした日" %>
+      <%= form.date_field :date %>
+    </div>
+    <div>
+      <%= form.label :image, "体の変化を記録する画像" %>
+      <%= form.file_field :image %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :image, "体の変化を記録する画像" %>
-    <%= form.file_field :image %>
-  </div>
+  <%# <div class="nested-fields"> %>
+    <%# "field" %>
+    <%# <%= form.label :image, "体の変化を記録する画像" %>
+    <%# <%= form.file_field :image %>
+  <%# </div> %>
 
   <div id="exercises">
     <%= form.fields_for :exercises do |exercise_form| %>

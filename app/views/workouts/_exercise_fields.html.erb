@@ -12,27 +12,27 @@
     <%= f.label :weight, "負荷を入力", class: "form-label" %>
   </div>
   <div class="field">
-    <%= f.number_field :weight, class: "form-input" %>kg or km/h（ジョギングの場合は速さ）
+    <%= f.number_field :weight, class: "form-input" %><span class="small-text">kg or km/h（ジョギングの場合は速さ）</span>
   </div>
 
   <div class="field">
     <%= f.label :reps, "回数/距離", class: "form-label" %>
   </div>
   <div class="field">
-    <%= f.number_field :reps, class: "form-input" %> 回 or km（ジョギングの場合は距離）
+    <%= f.number_field :reps, class: "form-input" %> <span class="small-text">回 or km（ジョギングの場合は距離）</span>
   </div>
 
   <div class="field">
     <%= f.label :sets, "セット数", class: "form-label" %>
   </div>
   <div class="field">
-    <%= f.number_field :sets, class: "form-input" %> セット
+    <%= f.number_field :sets, class: "form-input" %> <span class="small-text">セット</span>
   </div>
 
   <div class="field">
     <%= f.label :duration, "所要時間", class: "form-label" %>
   </div>
   <div class="field">
-    <%= f.number_field :duration, class: "form-input" %> 分
+    <%= f.number_field :duration, class: "form-input" %> <span class="small-text">分</span>
   </div>
 </div>

@@ -194,7 +194,7 @@ a {
 .nested-fields {
   border: 1px solid #ddd;
   padding: 10px 30%;
-  /* margin-bottom: 10px; */
+  margin: 10px;
   background: #f9f9f9;
 
 }
@@ -328,7 +328,9 @@ li {
 }
 
 
-
+.small-text {
+  font-size: 0.9em; /* 必要に応じてフォントサイズを調整 */
+}
 
 /* ↑詳細ページ↑ */
 
@@ -353,7 +355,7 @@ li {
 }
 
 .workout-date {
-  font-size: 1.2em;
+  font-size: 1.0em;
   font-weight: bold;
   margin-bottom: 10px;
   color: #4038ab;
@@ -387,7 +389,7 @@ li {
 /* ↑リンクの色を親要素に継承させる↑ */
 
 .workout-details {
-  font-size: 1em;
+  font-size: 0.9em;
   color: #333;
 }
 
