@@ -193,7 +193,7 @@ a {
 
 .nested-fields {
   border: 1px solid #ddd;
-  padding: 10px 30%;
+  padding: 10px 25%;
   margin: 10px;
   background: #f9f9f9;
 
@@ -414,6 +414,7 @@ li {
   text-decoration: underline;
 }
 
+/* レスポンシブデザイン */
 @media (max-width: 768px) {
   .upper {
     flex-direction: column;
@@ -449,6 +450,25 @@ li {
     width: 100%;
   }
 }
+
+/* より小さいスクリーン用のメディアクエリ追加 */
+@media (max-width: 360px) {
+  .upper {
+    padding: 5px;
+  }
+
+  .login-button, .new-work-button, .henshu-button {
+    padding: 8px 16px;
+    font-size: 14px;
+  }
+
+  .workout-card {
+    width: 100%;
+    padding: 10px;
+  }
+}
+
+
 /* ワークアウトリスト */
 
 /* ↓ユーザー登録↓ */
@@ -553,13 +573,9 @@ h2 {
 
 /* タブレット向け */
 @media (min-width: 769px) and (max-width: 1024px) {
-  body {
-    font-size: 16px;
+  .workout-card {
+    width: calc(50% - 20px);
   }
-  .container {
-    padding: 20px;
-  }
-  /* その他のタブレット向けスタイル */
 }
 
 /* デスクトップ向け */
@@ -594,3 +610,10 @@ h2 {
   }
 }
 /* ↑レスポンスデザイン↑ */
+
+/* グローバルスタイルの追加 */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
